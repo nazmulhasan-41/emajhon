@@ -1,4 +1,4 @@
-[
+export const data=[
     {
         "key": "B002RL8IYK",
         "category": "laptop",
@@ -2176,3 +2176,4 @@
         "shipping": 7.99
     }
 ]
+;

@@ -1,0 +1,16 @@
+.shopContainer{
+    display: flex;
+}
+.productContainer{
+    width: 75%;
+    margin-right: 12px solid ;
+    border-right: 2px solid  rgb(241, 193, 158);
+    text-align: left;
+    padding: 5px solid rgb(255,255.4);
+    padding-left: 2%;
+    padding-right: 1%;
+    
+}
+.cartContainer{
+    text-align: center;
+}
