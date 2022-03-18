@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { data } from  '../../fakeData/products';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
 const Shop = () => {
-    //console.log(data);
-    const [products,setProducts]= useState(data.slice(0,10));
 
+    const [products,setProducts]= useState(data.slice(0,10));
+    const [cart,setCart]=useState([]);
+    
+    const addProductHandler=(products)=>{
+        const newCart=[...cart,products];
+        setCart(newCart);
+
+    }
 
     return (
         <div className='shopContainer'>
@@ -15,7 +22,11 @@ const Shop = () => {
                 <ul>
                 
                 {products.map(x=>
-                    <Product singleProductData={x}></Product>
+                    <Product 
+                    addProductHandler={addProductHandler}
+                    singleProductData={x}
+                    
+                    ></Product>
                 
                 )}
 
@@ -23,7 +34,7 @@ const Shop = () => {
 
             </div>
             <div className='cartContainer'>
-                This is Cart section 
+                <Cart cart={cart}></Cart>
 
             </div>
             

@@ -7,7 +7,6 @@ function App() {
     <div >
       <Header></Header>
       <Shop></Shop>
-      <Shop></Shop>
       
     </div>
   );

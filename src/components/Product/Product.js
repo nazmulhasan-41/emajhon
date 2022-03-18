@@ -8,7 +8,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const Product = (props) => {
-    console.log(props.singleProductData);
     const [pdDetails,setPdDetails]=useState(props.singleProductData);
     return (
         <div className='productCon'>
@@ -57,10 +56,13 @@ const Product = (props) => {
                     
                 </div>
                 <div className='buttonClass'>
-                    <Button  variant="contained">
+                    <Button  
+                        variant="contained" 
+                        onClick={()=>props.addProductHandler(pdDetails)}
+                        >
                         <ShoppingCartIcon/>
-                        Add to Cart</Button>
-
+                        Add to Cart
+                    </Button>
 
                 </div>
 
