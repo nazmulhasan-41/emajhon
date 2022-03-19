@@ -1,6 +1,5 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import SendIcon from '@mui/icons-material/Send';
 import './Cart.css';
 import { Link } from 'react-router-dom';
 
@@ -34,15 +33,9 @@ const Cart = (props) => {
 
 
             <div className="shiftRight">
-                <Link to='/review'>
-                    <Button 
-
-                        className='reviewButton'
-                        variant="contained" endIcon={<SendIcon />}>
-                        Review
-                    </Button>
-
-                </Link>
+                {
+                    props.children
+                }
 
 
 

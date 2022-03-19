@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { getStoredCart } from '../../utilities/fakedb';
+import { clearTheCart, getStoredCart } from '../../utilities/fakedb';
 import { data } from '../../fakeData/products';
-import { Container, Table } from 'react-bootstrap';
+import { Button, Container, Table } from 'react-bootstrap';
 import './Review.css';
 import Cart from '../Cart/Cart';
 import ReviewItem from './ReviewItem';
 import {deleteFromDb} from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 const Review = () => {
   const [revCart, setRevCart] = useState([]);
@@ -34,7 +38,10 @@ const Review = () => {
     setRevCart(cartProducts);
   }, []);
 
- 
+ const placeOrderHandler=()=>{
+  setRevCart([]);
+  clearTheCart();
+}
 
   return (
     <div>
@@ -66,7 +73,19 @@ const Review = () => {
           </tbody>
         </Table>
         <div style={{ paddingLeft: '10px' }}>
-          <Cart cart={revCart}></Cart>
+          <Cart cart={revCart}>
+
+            
+          
+
+
+          <Button 
+          onClick={placeOrderHandler}
+          variant="primary" endIcon={<SendIcon />}
+          
+          >Place Order</Button>
+
+          </Cart>
 
         </div>
 

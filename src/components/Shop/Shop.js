@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { data } from  '../../fakeData/products';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
+import SendIcon from '@mui/icons-material/Send';
+
+
 
 const Shop = () => {
 
@@ -71,7 +76,17 @@ const Shop = () => {
 
             </div>
             <div className='cartContainer'>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+
+                <Link to='/review'>
+                    <Button variant="primary" endIcon={<SendIcon />}>Review</Button>
+
+                   
+
+                </Link>
+
+
+                </Cart>
 
             </div>
             

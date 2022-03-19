@@ -14,3 +14,24 @@
 .cartContainer {
     width: 30%;
 }
+
+
+
+
+
+
+
+
+
+button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.reviewButton.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    width: fit-content !important;
+    min-width: 100px;
+    max-width: 100px;
+    
+}
+
+.shiftRight {
+    text-align: end;
+    padding-right: 10%;
+}
+
