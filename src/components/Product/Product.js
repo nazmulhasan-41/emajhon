@@ -52,7 +52,10 @@ const Product = (props) => {
                 </div>
                 <div className='buttonClass'>
                     {
-                        props.buttonShow && <Button
+                        props.buttonShow && 
+                        
+                        <Button
+                            className='productButton'
                             variant="contained"
                             onClick={() => props.addProductHandler(pdDetails)}
                         >
