@@ -11,7 +11,7 @@ const Cart = (props) => {
 
     let sumWithInitial = 0;
     sumWithInitial = cart.reduce(
-        (total, prd) => total + prd.price, 0);
+        (total, prd) => total + (prd.price)* (prd.count), 0);
 
     let shipping = 0;
     if (sumWithInitial === 0) {
@@ -35,7 +35,7 @@ const Cart = (props) => {
 
             <div className="shiftRight">
                 <Link to='/review'>
-                    <Button
+                    <Button 
 
                         className='reviewButton'
                         variant="contained" endIcon={<SendIcon />}>

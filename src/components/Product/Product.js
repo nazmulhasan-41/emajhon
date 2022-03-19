@@ -40,7 +40,7 @@ const Product = (props) => {
 
                             <div className='listCont'>
                                 {
-                                    pdDetails.features.map(x => <li className='featureLists'>{x.description}: {x.value}</li>)
+                                    pdDetails.features.map(x => <li key={x.key} className='featureLists'>{x.description}: {x.value}</li>)
                                 }
 
                             </div>
