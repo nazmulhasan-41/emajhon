@@ -25,6 +25,7 @@ const Shop = () => {
                     <Product 
                     addProductHandler={addProductHandler}
                     singleProductData={x}
+                    buttonShow={true}
                     
                     ></Product>
                 

@@ -4,11 +4,12 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 
 
 const Product = (props) => {
-    const [pdDetails,setPdDetails]=useState(props.singleProductData);
+    const [pdDetails, setPdDetails] = useState(props.singleProductData);
     return (
         <div className='productCon'>
             <div className='imageField'>
@@ -18,7 +19,7 @@ const Product = (props) => {
             </div>
             <div className='detailsField'>
 
-                <h5>{pdDetails.name}</h5> 
+                <h5><Link to={`/product/${pdDetails.key}`} >{pdDetails.name}</Link> </h5>
                 <div className='des'>
                     <div className='left'>
                         <h6>category: {pdDetails.category}</h6>
@@ -33,40 +34,37 @@ const Product = (props) => {
 
                         <div className='features'>
                             <div className='ftitle'>
-                            Features
+                                Features
 
                             </div>
-                        
-                        <div className='listCont'>
-                        {
-                            pdDetails.features.map(x=><li className='featureLists'>{x.description}: {x.value}</li>)
-                        }
+
+                            <div className='listCont'>
+                                {
+                                    pdDetails.features.map(x => <li className='featureLists'>{x.description}: {x.value}</li>)
+                                }
+
+                            </div>
 
                         </div>
-                        
-                        
-                        
-
                     </div>
 
 
-                        
-                    </div>
-                   
-                    
                 </div>
                 <div className='buttonClass'>
-                    <Button  
-                        variant="contained" 
-                        onClick={()=>props.addProductHandler(pdDetails)}
+                    {
+                        props.buttonShow && <Button
+                            variant="contained"
+                            onClick={() => props.addProductHandler(pdDetails)}
                         >
-                        <ShoppingCartIcon/>
-                        Add to Cart
-                    </Button>
+                            <ShoppingCartIcon />
+                            Add to Cart
+                        </Button>
+                    }
+
 
                 </div>
 
-            </div>           
+            </div>
         </div>
     );
 };
