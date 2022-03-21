@@ -8,11 +8,15 @@ import ReviewItem from './ReviewItem';
 import {deleteFromDb} from '../../utilities/fakedb';
 import { Link } from 'react-router-dom';
 import SendIcon from '@mui/icons-material/Send';
+import successImage from '../../images/giphy.gif';
+import successPage from '../success/SuccessPage';
+import SuccessPage from '../success/SuccessPage';
 
 
 
 const Review = () => {
   const [revCart, setRevCart] = useState([]);
+  const [orderSuccess,setOrderSuccess]=useState(0);
 
   const deleteItem=(key)=>{
     //delete item from cart local storage
@@ -41,13 +45,24 @@ const Review = () => {
  const placeOrderHandler=()=>{
   setRevCart([]);
   clearTheCart();
+  setOrderSuccess(1);
 }
+let image;
+if(orderSuccess)
+{
+  //  image=<img src={successImage} alt="Girl in a jacket" width="500" height="600"></img>;
+   image= <SuccessPage></SuccessPage>
+}
+
 
   return (
     <div>
 
       <Container style={{ display: 'flex' }}>
 
+        {orderSuccess? image :
+        <>
+        
         <Table style={{ width: '70%', paddingRight: '10px' }}>
           <thead>
             <tr>
@@ -72,12 +87,10 @@ const Review = () => {
 
           </tbody>
         </Table>
+
+
         <div style={{ paddingLeft: '10px' }}>
           <Cart cart={revCart}>
-
-            
-          
-
 
           <Button 
           onClick={placeOrderHandler}
@@ -88,6 +101,9 @@ const Review = () => {
           </Cart>
 
         </div>
+        </>
+
+          }
 
       </Container>
 
