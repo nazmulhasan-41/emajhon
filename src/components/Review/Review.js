@@ -6,7 +6,7 @@ import './Review.css';
 import Cart from '../Cart/Cart';
 import ReviewItem from './ReviewItem';
 import {deleteFromDb} from '../../utilities/fakedb';
-import { Link } from 'react-router-dom';
+import { Link, unstable_HistoryRouter, useNavigate } from 'react-router-dom';
 import SendIcon from '@mui/icons-material/Send';
 import successImage from '../../images/giphy.gif';
 import successPage from '../success/SuccessPage';
@@ -42,11 +42,19 @@ const Review = () => {
     setRevCart(cartProducts);
   }, []);
 
- const placeOrderHandler=()=>{
-  setRevCart([]);
-  clearTheCart();
-  setOrderSuccess(1);
+//  const placeOrderHandler=()=>{
+//   setRevCart([]);
+//   clearTheCart();
+//   setOrderSuccess(1);
+// }
+const navigate=useNavigate();
+
+const placeOrderHandler=()=>{
+  // navigate('/login');
+  navigate('/test');
+ 
 }
+
 let image;
 if(orderSuccess)
 {
@@ -94,9 +102,9 @@ if(orderSuccess)
 
           <Button 
           onClick={placeOrderHandler}
-          variant="primary" endIcon={<SendIcon />}
+          variant="primary" 
           
-          >Place Order</Button>
+          >Checkout</Button>
 
           </Cart>
 
