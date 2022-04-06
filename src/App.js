@@ -26,6 +26,8 @@ function App() {
   return (
     <div >
       Email : {loggedInUser.email}
+      <a href="https://www.robinwieruch.de/react-router-private-routes/">Visit react router</a>
+
 
     <Context.Provider value={[loggedInUser,setLoggedInUser]}>
 
@@ -41,7 +43,15 @@ function App() {
         />
         <Route path="/login" element={<Login/>} />
 
-        <Route path="/test" element={<PrivateRoute Component={Shipment} />} />
+        <Route
+          path="/test"
+          element={
+            <PrivateRoute >
+              <Shipment />
+            </PrivateRoute>
+          }
+        />
+
 
    
         <Route path="*" element={<NotFound/>} />

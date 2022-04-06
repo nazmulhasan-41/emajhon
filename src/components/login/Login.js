@@ -135,6 +135,7 @@ const signOutHandler=()=>{
           varUser.success=true;
           varUser.errorMsg='Log in successful';
           setUserInfo(varUser);
+          setLoggedInUser(varUser)
 
 
           // console.log(user);
@@ -154,7 +155,7 @@ const signOutHandler=()=>{
     }
   }
 const checkBox=()=>{
-  console.log('check box');
+ // console.log('check box');
   setLogin(!login);
 
 }
@@ -187,7 +188,6 @@ signInWithPopup(fbauth, fbprovider)
     const credential = FacebookAuthProvider.credentialFromError(error);
 
   });
-
 }
   
   return (
@@ -228,10 +228,8 @@ signInWithPopup(fbauth, fbprovider)
           <input type="text" name='name'  onChange={handleChange} />
         </label><br/>
           </>
-
           }
         
-    
         <label>
           email:<br/>
           <input type="text" name='email' onChange={handleChange} />
@@ -244,11 +242,7 @@ signInWithPopup(fbauth, fbprovider)
         </label>
         <br/>
 
-
-
         <input type="submit" name='sub' value="Sbmit" />
-
-
       </form>
 
       {
