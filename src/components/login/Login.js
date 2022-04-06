@@ -7,7 +7,6 @@ import { useContext } from 'react';
 
 const app = initializeApp(firebaseConfig);
 
-
 function Login() {
 
     const [loggedInUser,setLoggedInUser]=useContext(Context);
